@@ -27,6 +27,11 @@ case $1 in
     EMBED_COLOR=6908265
     STATUS_MESSAGE="Started"
     ;;
+  
+  "canceled" )
+    EMBED_COLOR=6976381
+    STATUS_MESSAGE="Canceled"
+    ;;
 
   * )
     STATUS_MESSAGE="Status Unknown"
