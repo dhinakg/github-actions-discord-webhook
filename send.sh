@@ -51,7 +51,7 @@ BRANCH_NAME="$(echo $GITHUB_REF | sed 's/^[^/]*\/[^/]*\///g')"
 REPO_URL="https://github.com/$GITHUB_REPOSITORY"
 BRANCH_OR_PR="Branch"
 BRANCH_OR_PR_URL="$REPO_URL/tree/$BRANCH_NAME"
-ACTION_URL="$REPO_URL/runs/$GITHUB_RUN_ID"
+ACTION_URL="$REPO_URL/runs/$JOB_ID"
 COMMIT_OR_PR_URL=$COMMIT_URL
 if [ "$AUTHOR_NAME" == "$COMMITTER_NAME" ]; then
   CREDITS="$AUTHOR_NAME authored & committed"

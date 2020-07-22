@@ -12,8 +12,9 @@
             WEBHOOK_URL: ${{ secrets.WEBHOOK_URL }}
             HOOK_OS_NAME: ${{ runner.os }}
             WORKFLOW_NAME: ${{ github.workflow }}
+            JOB_ID: ${{ github.job }}
           run: |
-            git clone https://github.com/DiscordHooks/github-actions-discord-webhook.git webhook
+            git clone https://github.com/dhinakg/github-actions-discord-webhook.git webhook
             bash webhook/send.sh $JOB_STATUS $WEBHOOK_URL
           shell: bash
     ```
