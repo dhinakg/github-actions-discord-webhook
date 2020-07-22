@@ -13,14 +13,19 @@ echo -e "[Webhook]: Sending webhook to Discord...\\n";
 AVATAR="https://github.com/actions.png"
 
 case $1 in
-  "Success" )
+  "success" )
     EMBED_COLOR=3066993
     STATUS_MESSAGE="Passed"
     ;;
 
-  "Failure" )
+  "failure" )
     EMBED_COLOR=15158332
     STATUS_MESSAGE="Failed"
+    ;;
+  
+  "started" )
+    EMBED_COLOR=6908265
+    STATUS_MESSAGE="Started"
     ;;
 
   * )
@@ -41,7 +46,7 @@ BRANCH_NAME="$(echo $GITHUB_REF | sed 's/^[^/]*\/[^/]*\///g')"
 REPO_URL="https://github.com/$GITHUB_REPOSITORY"
 BRANCH_OR_PR="Branch"
 BRANCH_OR_PR_URL="$REPO_URL/tree/$BRANCH_NAME"
-ACTION_URL="$COMMIT_URL/checks"
+ACTION_URL="$REPO_URL/runs/$GITHUB_RUN_ID"
 COMMIT_OR_PR_URL=$COMMIT_URL
 if [ "$AUTHOR_NAME" == "$COMMITTER_NAME" ]; then
   CREDITS="$AUTHOR_NAME authored & committed"
